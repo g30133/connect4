@@ -2,7 +2,7 @@
   "name": "connect4",
   "version": "0.1.0",
   "private": true,
-  "homepage": "g30133.github.io/connect4",
+  "homepage": "https://g30133.github.io/connect4",
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
