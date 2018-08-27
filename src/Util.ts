@@ -31,7 +31,7 @@ class Util {
 
     private static checkColumnsForWinner(board:string[][]) {
         for(const column of board) {
-            for(let i = 0; i < column.length; i++) {
+            for(let i = 0; i < column.length-3; i++) {
                 if(column[i] === column[i+1] && column[i+1] === column[i+2] && column[i+2] === column[i+3] && column[i] !== '') {
                     console.log('column[i]:' + column[i])
                     return column[i]
@@ -43,7 +43,7 @@ class Util {
 
     private static checkRowsForWinner(board:string[][]) {
         for(let colIx = 0; colIx < board.length-3; colIx++) {
-            for(let rowIx = 0; rowIx < board[colIx].length-3; rowIx++) {
+            for(let rowIx = 0; rowIx < board[colIx].length; rowIx++) {
                 if(
                     board[colIx][rowIx] === board[colIx+1][rowIx] &&
                     board[colIx+1][rowIx] === board[colIx+2][rowIx] &&
@@ -59,20 +59,22 @@ class Util {
     private static checkDiagonalForWinner(board:string[][]) {
         for(let colIx = 0; colIx < board.length-3; colIx++) {
             for(let rowIx = 0; rowIx < board[colIx].length-3; rowIx++) {
-                if((
-                        board[colIx][rowIx] === board[colIx+1][rowIx+1] &&
+                if(board[colIx][rowIx] === board[colIx+1][rowIx+1] &&
                         board[colIx+1][rowIx+1] === board[colIx+2][rowIx+2] &&
                         board[colIx+2][rowIx+2] === board[colIx+3][rowIx+3] &&
-                        board[colIx][rowIx] !== ''
-                    ) || (
-                        board[colIx][rowIx] === board[colIx+1][rowIx-1] &&
-                        board[colIx+1][rowIx-1] === board[colIx+2][rowIx-2] &&
-                        board[colIx+2][rowIx-2] === board[colIx+3][rowIx-3] &&
-                        board[colIx][rowIx] !== ''
-                    ))
-                {
+                        board[colIx][rowIx] !== '') {
+                    return board[colIx][rowIx]
+                }
+            }
+
+            for(let rowIx = 3; rowIx < board.length; rowIx++) {
+                if(board[colIx][rowIx] === board[colIx+1][rowIx-1] &&
+                board[colIx+1][rowIx-1] === board[colIx+2][rowIx-2] &&
+                board[colIx+2][rowIx-2] === board[colIx+3][rowIx-3] &&
+                board[colIx][rowIx] !== '') {
                     return board[colIx][rowIx]    
                 }
+
             }
         }
         return ''

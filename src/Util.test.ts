@@ -55,7 +55,18 @@ describe('util helper functions', () => {
         expect(Util.checkForWinner(board)).toBe('X')
     })
 
-    it.only('testing row checkForWinner', () => {
+    it('testing diagonal checkForWinner', () => {
+        board[0] = ['O', '', '', '', '', '']
+        board[1] = ['', '', '', '', '', '']
+        board[2] = ['O', 'X', 'O', 'X', '', '']
+        board[3] = ['X', 'O', 'X', '', '', '']
+        board[4] = ['O', 'X', '', '', '', '']
+        board[5] = ['X', '', '', '', '', '']
+        board[6] = ['', '', '', '', '', '']
+        expect(Util.checkForWinner(board)).toBe('X')
+    })
+
+    it('testing row checkForWinner', () => {
         board[0] = ['X', '', '', '', '', '']
         board[1] = ['X', 'X', '', '', '', '']
         board[2] = ['X', '', '', '', '', '']
