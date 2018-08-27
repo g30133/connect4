@@ -76,4 +76,26 @@ describe('util helper functions', () => {
         board[6] = ['O', '', '', '', '', '']
         expect(Util.checkForWinner(board)).toBe('O')
     })
+
+    it('testing row checkForWinner', () => {
+        board[0] = ['O', 'O', 'O', 'X', 'X', 'X']
+        board[1] = ['X', 'X', 'X', 'O', 'O', 'X']
+        board[2] = ['O', 'O', 'O', 'X', 'X', 'X']
+        board[3] = ['X', 'X', 'X', 'O', 'O', 'X']
+        board[4] = ['O', 'O', 'O', 'X', 'X', 'O']
+        board[5] = ['X', 'X', 'X', 'O', 'O', 'O']
+        board[6] = ['O', 'O', 'O', 'X', 'X', 'X']
+        expect(Util.checkForWinner(board)).toBe('X')
+    })
+
+    it('testing row checkForWinner', () => {
+        board[0] = ['O', 'O', 'O', 'X', 'X', 'X']
+        board[1] = ['X', 'X', 'X', 'O', 'O', 'X']
+        board[2] = ['O', 'O', 'O', 'X', 'X', 'O']
+        board[3] = ['X', 'X', 'X', 'O', 'O', 'O']
+        board[4] = ['O', 'O', 'O', 'X', 'X', 'O']
+        board[5] = ['X', 'X', 'X', 'O', 'O', 'O']
+        board[6] = ['O', 'O', 'O', 'X', 'X', 'X']
+        expect(Util.checkForWinner(board)).toBe('O')
+    })
 })
